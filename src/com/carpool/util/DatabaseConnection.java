@@ -43,7 +43,8 @@ public class DatabaseConnection {
     
     public static void closeConnection(){
     	try{
-    	conn.close();
+    		conn.close();
+    		System.out.println("Database connection closed");
     	}
     	catch(Exception e){
     		System.err.println("Failed to close connection "+ e.getMessage());

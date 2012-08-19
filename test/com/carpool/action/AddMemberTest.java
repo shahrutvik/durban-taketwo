@@ -25,5 +25,13 @@ public class AddMemberTest {
   public void displayErrorWhenWrongPhoneNumber(){
 	  
   }
+  public void cannotAddBlankFirstName(){
+	  
+  }
+  public void cannotAddBlankLastName(){
+  }
+  public void cannotAddBlankPhoneNumber(){
+  }
+  
   
 }
