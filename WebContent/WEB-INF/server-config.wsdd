@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -29,19 +29,46 @@
    <ns2:parameter qname="ns1:phoneNumber" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns2:operation>
   <ns1:parameter name="allowedMethods" value="add"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="AddMemberAction"/>
-  <ns1:parameter name="className" value="com.carpool.action.AddMemberAction"/>
-  <ns1:parameter name="wsdlServicePort" value="AddMemberAction"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://action.carpool.com"/>
+  <ns1:parameter name="wsdlServicePort" value="AddMemberAction"/>
+  <ns1:parameter name="className" value="com.carpool.action.AddMemberAction"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://action.carpool.com"/>
   <ns1:parameter name="wsdlServiceElement" value="AddMemberActionService"/>
+ </ns1:service>
+ <ns1:service name="AddMemberToClubAction" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="add" qname="ns2:add" soapAction="" xmlns:ns2="http://action.carpool.com">
+   <ns1:parameter qname="ns2:clubName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:memberPhoneNumber" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="add"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="AddMemberToClubAction"/>
+  <ns1:parameter name="className" value="com.carpool.action.AddMemberToClubAction"/>
+  <ns1:parameter name="wsdlServicePort" value="AddMemberToClubAction"/>
+  <ns1:parameter name="schemaQualified" value="http://action.carpool.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://action.carpool.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="AddMemberToClubActionService"/>
  </ns1:service>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>
   <ns1:parameter name="enableRemoteAdmin" value="false"/>
   <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
   <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="AddClubAction" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="add" qname="ns3:add" soapAction="" xmlns:ns3="http://action.carpool.com">
+   <ns1:parameter qname="ns3:clubName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="add"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="AddClubAction"/>
+  <ns1:parameter name="className" value="com.carpool.action.AddClubAction"/>
+  <ns1:parameter name="wsdlServicePort" value="AddClubAction"/>
+  <ns1:parameter name="schemaQualified" value="http://action.carpool.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://action.carpool.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="AddClubActionService"/>
  </ns1:service>
  <ns1:service name="Version" provider="java:RPC">
   <ns1:parameter name="allowedMethods" value="getVersion"/>
