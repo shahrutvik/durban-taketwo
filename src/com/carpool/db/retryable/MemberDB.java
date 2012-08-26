@@ -65,6 +65,38 @@ public class MemberDB {
 		}
 		return numberOfMembers;
 		}
+
+		public int getMemberId(String memberPhoneNumber) {
+			int memberId=0;
+			try{
+						
+						
+						connection=DatabaseConnection.connectToDatabase();
+						
+						Statement s = connection.createStatement();
+						String selectQuery="SELECT "+columnIdMember+" as memberId FROM "+table
+					               + " WHERE "
+					               + columnPhoneNumber+"="+"'"+memberPhoneNumber+"'";   
+						   
+						   ResultSet rs = s.executeQuery (selectQuery);		               
+						              
+						   rs.next();
+						   memberId = rs.getInt("memberId") ;
+						   rs.close() ;
+						   System.out.println("Member Id " + memberId + " returned");
+						   s.close ();
+						   
+						   
+					}
+					catch(SQLException e){
+						System.out.println("Failed to fetch member id"  + e.getMessage());
+					}
+					finally{
+						DatabaseConnection.closeConnection();
+					}
+				return memberId;
+					
+		}
 		
 	}
 

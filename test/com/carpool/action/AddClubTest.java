@@ -22,9 +22,7 @@ public class AddClubTest {
   public void cannotAddSameClubNameTwice(){
 	  
   }
-  public void displayErrorWhenWrongPhoneNumber(){
-	  
-  }
+  
   public void cannotAddBlankClubName(){
 	  
   }

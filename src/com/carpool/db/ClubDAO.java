@@ -22,4 +22,12 @@ public class ClubDAO {
 		
 	}
 
+	public int getClubId(String clubName) {
+		return clubVirtual.getIdForNickname(clubName);
+	}
+	
+	
+	
+	
+
 }

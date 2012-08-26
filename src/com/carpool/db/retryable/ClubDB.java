@@ -63,6 +63,30 @@ public class ClubDB {
 		}
 		return numberOfClubs;
 		}
+
+		public int getIdForNickname(String clubName) {
+			int idClub = 0;
+			try{
+				
+				connection=DatabaseConnection.connectToDatabase();
+				Statement s = connection.createStatement();
+				
+				String selectQuery="SELECT idClub AS IDCLUB FROM "+table;
+		         
+				ResultSet rs = s.executeQuery (selectQuery);
+				rs.next();
+				idClub=rs.getInt("IDCLUB");
+			    rs.close ();
+			    System.out.println ("Club Id: "+idClub);
+		}
+		catch(SQLException e){
+			System.out.println("Failed to get club id:"  + e.getMessage());
+		}
+		finally{
+			DatabaseConnection.closeConnection();
+		}
+		return idClub;
+		}
 		
 	}
 
