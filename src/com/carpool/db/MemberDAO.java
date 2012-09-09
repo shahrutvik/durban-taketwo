@@ -23,5 +23,8 @@ public class MemberDAO {
 	public int getMemberId(String memberPhoneNumber) {
 		return memberVirtual.getMemberId(memberPhoneNumber);
 	}
+	
+
+	
 
 }

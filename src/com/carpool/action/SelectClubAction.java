@@ -15,4 +15,7 @@ public class SelectClubAction {
 	protected int getNumberOfClubs(){
 			return clubDAO.getNumberOfClubs();
 	}
+	
+	
+	
 }

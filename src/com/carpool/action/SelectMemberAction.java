@@ -14,4 +14,7 @@ public class SelectMemberAction {
 	protected int getNumberOfMembers(){
 			return memberDAO.getNumberOfMembers();
 	}
+	
+
+	
 }
