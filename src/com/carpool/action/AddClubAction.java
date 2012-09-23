@@ -15,12 +15,21 @@ public class AddClubAction {
 	public void add(String clubName){
 		ClubVO club = new ClubVO();
 		club.setClubName(clubName);
-		
-		add(club);
+		if(!exists(club)){
+			add(club);
+		}
+		else{
+			System.out.println("Adding Club Failed.."+clubName+":already exists");
+		}
 	}
 	
 	private void add(ClubVO club){
 		 clubDAO.insertClub(club);
 	}
+	
+	private boolean exists(ClubVO club){
+		return clubDAO.exists(club);
+	}
+	
 
 }

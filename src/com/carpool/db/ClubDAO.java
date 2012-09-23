@@ -25,6 +25,11 @@ public class ClubDAO {
 	public int getClubId(String clubName) {
 		return clubVirtual.getIdForNickname(clubName);
 	}
+
+	public boolean exists(ClubVO club) {
+		
+		return clubVirtual.exists(club);
+	}
 	
 	
 	

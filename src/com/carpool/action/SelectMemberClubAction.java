@@ -1,5 +1,7 @@
 package com.carpool.action;
 
+import java.util.ArrayList;
+
 import com.carpool.db.MemberToClubDAO;
 
 public class SelectMemberClubAction {
@@ -10,7 +12,7 @@ public class SelectMemberClubAction {
 		memberToClubDAO = new MemberToClubDAO();
 	}
 	
-	public String getClubName(String memberPhoneNumber){
+	public ArrayList<String> getClubName(String memberPhoneNumber){
 		return memberToClubDAO.getClubName(memberPhoneNumber);
 	}
 

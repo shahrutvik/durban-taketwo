@@ -1,5 +1,7 @@
 package com.carpool.db;
 
+import java.util.ArrayList;
+
 import com.carpool.db.retryable.MemberClubsDB;
 import com.carpool.vo.MemberToClubVO;
 
@@ -15,7 +17,7 @@ public class MemberToClubDAO {
 		memberToClubVirtual.insert(memberToClubVO);
 	}
 
-	public String getClubName(String memberPhoneNumber) {
+	public ArrayList<String> getClubName(String memberPhoneNumber) {
 		return memberToClubVirtual.getClubName(memberPhoneNumber);
 	}
 

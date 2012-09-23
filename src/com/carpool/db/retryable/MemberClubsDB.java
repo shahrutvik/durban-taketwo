@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.carpool.util.DatabaseConnection;
 import com.carpool.vo.MemberToClubVO;
@@ -47,8 +48,9 @@ public class MemberClubsDB {
 		}
 	}
 
-	public String getClubName(String memberPhoneNumber) {
-		String clubName=null;
+	public ArrayList<String> getClubName(String memberPhoneNumber) {
+		//String clubName=null;
+		ArrayList<String> clubNames = new ArrayList<String>();
 		try{
 									
 					connection=DatabaseConnection.connectToDatabase();
@@ -64,10 +66,13 @@ public class MemberClubsDB {
 					 System.out.println(selectQuery);  
 					   ResultSet rs = s.executeQuery (selectQuery);		               
 					              
-					   rs.next();
-					   clubName = rs.getString("CLUBNAME") ;
+					   while (rs.next()) {
+						   String clubName=rs.getString("CLUBNAME");
+						   clubNames.add(clubName) ;
+						   System.out.println("Club Name " + clubName + " returned");
+					   }
 					   rs.close() ;
-					   System.out.println("Club Name " + clubName + " returned");
+					   
 					   s.close ();
 					   
 					   
@@ -78,7 +83,7 @@ public class MemberClubsDB {
 				finally{
 					DatabaseConnection.closeConnection();
 				}
-			return clubName;
+			return clubNames;
 	}
 	
 

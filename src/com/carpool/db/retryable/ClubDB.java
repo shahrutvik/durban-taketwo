@@ -71,8 +71,11 @@ public class ClubDB {
 				connection=DatabaseConnection.connectToDatabase();
 				Statement s = connection.createStatement();
 				
-				String selectQuery="SELECT idClub AS IDCLUB FROM "+table;
-		         
+				String selectQuery="SELECT idClub AS IDCLUB" +
+						" FROM "+
+						table+
+						"where "+columnName+"='"+clubName+"'";
+		        System.out.println("getIdForNickName: "+selectQuery); 
 				ResultSet rs = s.executeQuery (selectQuery);
 				rs.next();
 				idClub=rs.getInt("IDCLUB");
@@ -87,7 +90,37 @@ public class ClubDB {
 		}
 		return idClub;
 		}
-		
+
+		public boolean exists(ClubVO club) {
+			boolean clubExists=false;
+try{
+				
+				connection=DatabaseConnection.connectToDatabase();
+				Statement s = connection.createStatement();
+				
+				String selectQuery="SELECT COUNT(*) AS NUMCLUBS" +
+						" FROM "+
+						table+
+						" where "+columnName+"='"+club.getClubName()+"'";
+		        System.out.println("exists: "+selectQuery); 
+				ResultSet rs = s.executeQuery (selectQuery);
+				rs.next();
+				int numberOfClubs=rs.getInt("NUMCLUBS");
+			    rs.close ();
+			    System.out.println ("Number Of Clubs: "+numberOfClubs);
+			    if(numberOfClubs==1){
+			    	clubExists=true;
+			    }
+		}
+		catch(SQLException e){
+			System.out.println("Failed to get club count:"  + e.getMessage());
+		}
+	finally{
+		DatabaseConnection.closeConnection();
 	}
+	return clubExists;
+	}
+		
+}
 
 
